@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: list-duplicates-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: list-duplicate-files
+        image: list-dups
+        command: ["python", "list_duplicates.py", "directory_path"]
+      restartPolicy: Never
